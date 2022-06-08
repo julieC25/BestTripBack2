@@ -27,9 +27,9 @@ public class Ville implements Serializable {
 	@OneToMany(mappedBy = "ville")
 	private List<Avis> avis = new ArrayList<>();
 	
-	//@ManyToOne
-	//@JoinColumn(name="idPays")
-	//private Pays pays;
+	@ManyToOne
+	@JoinColumn(name="idPays")
+	private Pays pays;
 
 	public Ville() {
 	}
