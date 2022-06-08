@@ -23,8 +23,6 @@ public class Guide implements Serializable {
 	private String fichierPdf;
 	private String type;
 
-	// @ManyToMany(fetch = FetchType.EAGER)
-	// private Set<Guide> guides = new HashSet<>();
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
 	private Pays pays;
