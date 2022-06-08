@@ -46,7 +46,7 @@ public class Utilisateur implements Serializable{
 	private Set<Role> roles = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<Newsletter> newsletters;
-	@OneToMany(mappedBy = "experience")
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<Experience> experiences;
 	
 	
