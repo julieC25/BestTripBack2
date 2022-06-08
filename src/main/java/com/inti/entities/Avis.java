@@ -20,6 +20,18 @@ public class Avis implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_compagnie")
 	private CompagniesTransport compTransport;
+	@ManyToOne
+	@JoinColumn(name = "id_utilisateur")
+	private Utilisateur utilisateur;
+	@ManyToOne
+	@JoinColumn(name = "id_ville")
+	private Ville ville;
+	@ManyToOne
+	@JoinColumn(name = "id_lieu")
+	private Lieu lieu;
+	@ManyToOne
+	@JoinColumn(name = "id_pays")
+	private Pays pays;
 
 	public Avis() {
 		super();
