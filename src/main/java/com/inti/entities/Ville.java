@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,6 +23,13 @@ public class Ville implements Serializable {
 	
 	@OneToMany(mappedBy = "ville")
 	private List<Lieu> lieux = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "ville")
+	private List<Avis> avis = new ArrayList<>();
+	
+	//@ManyToOne
+	//@JoinColumn(name="idPays")
+	//private Pays pays;
 
 	public Ville() {
 	}
