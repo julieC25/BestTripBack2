@@ -30,6 +30,8 @@ public class Pays implements Serializable {
 	private List<Experience> experiences = new ArrayList<>();
 	@OneToMany(mappedBy = "pays")
 	private List<Ville> villes = new ArrayList<>();
+	@OneToMany(mappedBy = "pays")
+	private List<Avis> avis = new ArrayList<>();
 
 	public Pays() {
 	}
