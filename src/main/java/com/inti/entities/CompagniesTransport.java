@@ -24,7 +24,7 @@ public class CompagniesTransport implements Serializable {
 	private String nom;
 	private String siret;
 	private int coût;
-	private boolean ponctualité;
+	private boolean ponctualite;
 	@OneToMany(mappedBy = "compTransport")
 	private List<Avis> avis = new ArrayList<>();
 
@@ -32,12 +32,12 @@ public class CompagniesTransport implements Serializable {
 		super();
 	}
 
-	public CompagniesTransport(String nom, String siret, int coût, boolean ponctualité, List<Avis> avis) {
+	public CompagniesTransport(String nom, String siret, int coût, boolean ponctualite, List<Avis> avis) {
 		super();
 		this.nom = nom;
 		this.siret = siret;
 		this.coût = coût;
-		this.ponctualité = ponctualité;
+		this.ponctualite = ponctualite;
 		this.avis = avis;
 	}
 
@@ -73,12 +73,12 @@ public class CompagniesTransport implements Serializable {
 		this.coût = coût;
 	}
 
-	public boolean isPonctualité() {
-		return ponctualité;
+	public boolean isPonctualite() {
+		return ponctualite;
 	}
 
-	public void setPonctualité(boolean ponctualité) {
-		this.ponctualité = ponctualité;
+	public void setPonctualite(boolean ponctualite) {
+		this.ponctualite = ponctualite;
 	}
 
 	public List<Avis> getAvis() {
@@ -92,7 +92,7 @@ public class CompagniesTransport implements Serializable {
 	@Override
 	public String toString() {
 		return "CompagniesTransport [idCompagnie=" + idCompagnie + ", nom=" + nom + ", siret=" + siret + ", coût="
-				+ coût + ", ponctualité=" + ponctualité + ", avis=" + avis + "]";
+				+ coût + ", ponctualite=" + ponctualite + ", avis=" + avis + "]";
 	}
 
 }
