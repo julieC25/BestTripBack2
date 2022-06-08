@@ -1,6 +1,8 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -12,6 +14,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance (strategy=InheritanceType.SINGLE_TABLE)
@@ -26,6 +29,9 @@ public class Lieu implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="idVille")
 	private Ville ville;
+	
+	@OneToMany(mappedBy = "lieu")
+	private List<Avis> avis = new ArrayList<>();
 	
 	public Lieu() {
 	}
