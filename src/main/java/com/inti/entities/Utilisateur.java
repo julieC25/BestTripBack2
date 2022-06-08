@@ -31,13 +31,24 @@ public class Utilisateur implements Serializable{
 	private boolean abonnementNewsletter;
 	private boolean enabled;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="PROFILS",joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"),
-					   inverseJoinColumns = @JoinColumn(name="id_role",referencedColumnName="idRole"))
-	private Set<Role> roles = new HashSet<>();
+	@JoinTable(name="GUIDE_AUTHEUR",joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"),
+					   inverseJoinColumns = @JoinColumn(name="id_guide",referencedColumnName="idGuide"))
+	private Set<Guide> guides = new HashSet<>();
 	@Lob
 	private byte[] imageProfil;
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<Statistique> statistiques;
+	@OneToMany(mappedBy = "utilisateur")
+	private Set<Avis> avisListe;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name="PROFILS",joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"),
+					   inverseJoinColumns = @JoinColumn(name="id_role",referencedColumnName="idRole"))
+	private Set<Role> roles = new HashSet<>();
+	@OneToMany(mappedBy = "utilisateur")
+	private Set<Newsletter> newsletters;
+	@OneToMany(mappedBy = "experience")
+	private Set<Experience> experiences;
+	
 	
 	public Utilisateur() {
 		
@@ -57,6 +68,14 @@ public class Utilisateur implements Serializable{
 	}
 	
 	
+
+	public Set<Avis> getAvisListe() {
+		return avisListe;
+	}
+
+	public void setAvisListe(Set<Avis> avisListe) {
+		this.avisListe = avisListe;
+	}
 
 	public Set<Statistique> getStatistiques() {
 		return statistiques;
