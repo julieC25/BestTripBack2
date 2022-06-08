@@ -26,6 +26,9 @@ public class Experience implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
 	private Pays pays;
+	@ManyToOne
+	@JoinColumn(name = "id_utilisateur")
+	private Utilisateur utilisateur;
 
 	public Experience() {
 	}
