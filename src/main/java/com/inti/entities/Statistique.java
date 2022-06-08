@@ -1,6 +1,7 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Statistique implements Serializable{
@@ -17,8 +19,10 @@ public class Statistique implements Serializable{
 	private Long idStatistique;
 	@Column(unique = true)
 	private String titre;
-	private String valeurX;
-	private float valeurY;
+	private String nomAxeX;
+	private String nomAxeY;
+	@OneToMany(mappedBy = "statistique")
+	private Set<PointStatistique> valeurs;
 	@ManyToOne
 	@JoinColumn(name="id_utilisateur")
 	private Utilisateur utilisateur;
@@ -26,14 +30,6 @@ public class Statistique implements Serializable{
 	
 	public Statistique() {
 		
-	}
-	
-	public Statistique(String titre, String nomAxeX, String nomAxeY, int nbValeurs, String valeurX,
-			float valeurY, Utilisateur utilisateur) {
-		this.titre = titre;
-		this.valeurX = valeurX;
-		this.valeurY = valeurY;
-		this.utilisateur = utilisateur;
 	}
 
 	public Utilisateur getUtilisateur() {
@@ -55,18 +51,37 @@ public class Statistique implements Serializable{
 		this.titre = titre;
 	}
 
-	public String getValeurX() {
-		return valeurX;
-	}
-	public void setValeurX(String valeurX) {
-		this.valeurX = valeurX;
-	}
-	public float getValeurY() {
-		return valeurY;
-	}
-	public void setValeurY(float valeurY) {
-		this.valeurY = valeurY;
+	
+	public String getNomAxeX() {
+		return nomAxeX;
 	}
 
+	public void setNomAxeX(String nomAxeX) {
+		this.nomAxeX = nomAxeX;
+	}
+
+	public String getNomAxeY() {
+		return nomAxeY;
+	}
+
+	public void setNomAxeY(String nomAxeY) {
+		this.nomAxeY = nomAxeY;
+	}
+
+	public Set<PointStatistique> getValeurs() {
+		return valeurs;
+	}
+
+	public void setValeurs(Set<PointStatistique> valeurs) {
+		this.valeurs = valeurs;
+	}
+
+	public Statistique(String titre, String nomAxeX, String nomAxeY, Utilisateur utilisateur) {
+		this.titre = titre;
+		this.nomAxeX = nomAxeX;
+		this.nomAxeY = nomAxeY;
+		this.utilisateur = utilisateur;
+	}
+	
 	
 }
