@@ -17,7 +17,7 @@ public class Newsletter implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idNewsletter;
 	private Date dateParution;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
@@ -27,6 +27,11 @@ public class Newsletter implements Serializable {
 
 	public Newsletter(Date dateParution) {
 		this.dateParution = dateParution;
+	}
+
+	public Newsletter(Date dateParution, Utilisateur utilisateur) {
+		this.dateParution = dateParution;
+		this.utilisateur = utilisateur;
 	}
 
 	public Long getIdNewsletter() {

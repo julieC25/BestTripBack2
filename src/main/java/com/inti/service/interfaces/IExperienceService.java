@@ -13,11 +13,11 @@ public interface IExperienceService {
 
 	void delete(Long idExperience);
 
-	/*Experience findByDureeExperience(Date dureeExperience);
+	Experience findByDureeExperience(Date dureeExperience);
 
 	List<Experience> findByDepense(float depense);
 
-	List<Experience> findByTale(String recit);
+	/*List<Experience> findByTale(String recit);
 
-	int nbrExperience();*/
+	/*int nbrExperience();*/
 }

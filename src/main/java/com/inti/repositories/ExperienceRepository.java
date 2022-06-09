@@ -11,13 +11,13 @@ import com.inti.entities.Experience;
 
 @Repository
 public interface ExperienceRepository extends JpaRepository<Experience, Long> {
-	/*Experience findByDureeExperience(Date dureeExperience);
+	Experience findByDureeExperience(Date dureeExperience);
 
 	List<Experience> findByDepense(float depense);
 
-	List<Experience> findByTale(String recit);
+	/*List<Experience> findByTale(String recit);
 
-	@Query(value = "SELECT count(*) FROM Experience", nativeQuery = true)
+	/*@Query(value = "SELECT count(*) FROM Experience", nativeQuery = true)
 	int nbrExperience();*/
 
 }

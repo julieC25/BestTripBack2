@@ -40,7 +40,7 @@ public class ExperienceService implements IExperienceService {
 
 	}
 
-	/*@Override
+	@Override
 	public Experience findByDureeExperience(Date dureeExperience) {
 		return experienceRepository.findByDureeExperience(dureeExperience);
 	}
@@ -51,13 +51,13 @@ public class ExperienceService implements IExperienceService {
 		return experienceRepository.findByDepense(depense);
 	}
 
-	@Override
+	/*@Override
 	public List<Experience> findByTale(String recit) {
 
 		return experienceRepository.findByTale(recit);
 	}
 
-	@Override
+	/*@Override
 	public int nbrExperience() {
 
 		return experienceRepository.nbrExperience();

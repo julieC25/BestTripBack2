@@ -23,7 +23,7 @@ public class Pays implements Serializable {
 	private boolean conduiteSens = true;
 	private int visa;
 	private String numeroUtile;
-	
+
 	@OneToMany(mappedBy = "pays")
 	private List<Guide> guides = new ArrayList<>();
 	@OneToMany(mappedBy = "pays")
@@ -45,6 +45,21 @@ public class Pays implements Serializable {
 		this.conduiteSens = conduiteSens;
 		this.visa = visa;
 		this.numeroUtile = numeroUtile;
+	}
+
+	public Pays(String nomPays, String securite, String langue, String surface, boolean conduiteSens, int visa,
+			String numeroUtile, List<Guide> guides, List<Experience> experiences, List<Ville> villes, List<Avis> avis) {
+		this.nomPays = nomPays;
+		this.securite = securite;
+		this.langue = langue;
+		this.surface = surface;
+		this.conduiteSens = conduiteSens;
+		this.visa = visa;
+		this.numeroUtile = numeroUtile;
+		this.guides = guides;
+		this.experiences = experiences;
+		this.villes = villes;
+		this.avis = avis;
 	}
 
 	public Long getIdPays() {
@@ -145,8 +160,9 @@ public class Pays implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pays [idPays=" + idPays + ", nomPays=" + nomPays + ", securite=" + securite + ", langue=" + langue + ", surface="
-				+ surface + ", conduiteSens=" + conduiteSens + ", visa=" + visa + ", numeroUtile=" + numeroUtile + "]";
+		return "Pays [idPays=" + idPays + ", nomPays=" + nomPays + ", securite=" + securite + ", langue=" + langue
+				+ ", surface=" + surface + ", conduiteSens=" + conduiteSens + ", visa=" + visa + ", numeroUtile="
+				+ numeroUtile + "]";
 	}
 
 }
