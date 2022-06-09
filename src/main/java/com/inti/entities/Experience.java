@@ -97,4 +97,18 @@ public class Experience implements Serializable {
 		this.pays = pays;
 	}
 
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	@Override
+	public String toString() {
+		return "Experience [idExperience=" + idExperience + ", recit=" + recit + ", date=" + date + ", dureeExperience="
+				+ dureeExperience + ", depense=" + depense + ", approbation=" + approbation + "]";
+	}
+
 }

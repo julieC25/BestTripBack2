@@ -45,6 +45,14 @@ public class Newsletter implements Serializable {
 		this.dateParution = dateParution;
 	}
 
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
 	@Override
 	public String toString() {
 		return "Newsletter [idNewsletter=" + idNewsletter + ", dateParution=" + dateParution + "]";
