@@ -26,12 +26,12 @@ public class GuideController {
 	@Autowired 
 	IGuideService guideService;
 
-	@GetMapping("guides")
+	@GetMapping("/guides")
 	public List<Guide> findAll() {
 		return guideService.findAll();
 	}
 
-	@GetMapping("guides/{idG}") 
+	@GetMapping("/guides/{idG}") 
 	public Guide findOne(@PathVariable("idG") Long idGuide) {
 		return guideService.findOne(idGuide); 
 	}
@@ -50,12 +50,12 @@ public class GuideController {
 		}
 	}
 
-	@DeleteMapping("guides/{idGuide}")
+	@DeleteMapping("/guides/{idGuide}")
 	public void deleteguide(@PathVariable("idGuide") Long idGuide) {
 		guideService.delete(idGuide);
 	}
 
-	@PutMapping("guides/{idG}")
+	@PutMapping("/guides/{idG}")
 	public Guide updateguide(@PathVariable("idG") Long idGuide, @RequestBody Guide guide) {
 		Guide currentGuide = guideService.findOne(idGuide);
 		currentGuide.setTitre(guide.getTitre());

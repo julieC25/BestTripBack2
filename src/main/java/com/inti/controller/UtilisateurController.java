@@ -28,7 +28,7 @@ public class UtilisateurController {
 		return utilisateurService.findAll();
 	}
 
-	@GetMapping("utilisateurs/{idUtilisateur}")
+	@GetMapping("/utilisateurs/{idUtilisateur}")
 	public Utilisateur findOne(@PathVariable("idUtilisateur") Long id) {
 		return utilisateurService.findOne(id);
 	}

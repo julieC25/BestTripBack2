@@ -13,7 +13,7 @@ public interface INewsletterService {
 
 	void delete(Long idNewsletter);
 
-	/*List<Newsletter> findByDate(Date dateParution);
+	List<Newsletter> findByDateParution(Date dateParution);
 
-	int nbrNewsletter();*/
+	int nbrNewsletter();
 }

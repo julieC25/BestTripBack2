@@ -38,22 +38,22 @@ public class GuideService implements IGuideService {
 
 	}
 
-	/*@Override
+	@Override
 	public Guide findByType(String type) {
 		
 		return guideRepository.findByType(type);
 	}
 
 	@Override
-	public List<Guide> findByTitle(String titre) {
+	public List<Guide> findByTitre(String titre) {
 			
-		return guideRepository.findByTitle(titre);
+		return guideRepository.findByTitre(titre);
 	}
 
 	@Override
 	public int nbrGuide() {
 		
 		return guideRepository.nbrGuide();
-	}*/
+	}
 
 }

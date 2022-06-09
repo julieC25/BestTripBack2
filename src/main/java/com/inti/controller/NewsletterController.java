@@ -23,27 +23,27 @@ public class NewsletterController {
 	@Autowired 
 	INewsletterService NewsletterService;
 
-	@GetMapping("Newsletters")
+	@GetMapping("/Newsletters")
 	public List<Newsletter> findAll() {
 		return NewsletterService.findAll();
 	}
 
-	@GetMapping("Newsletters/{idN}") 
+	@GetMapping("/Newsletters/{idN}") 
 	public Newsletter findOne(@PathVariable("idN") Long idNewsletter) {
 		return NewsletterService.findOne(idNewsletter); 
 	}
 
-	@PostMapping("Newsletters") 
+	@PostMapping("/Newsletters") 
 	public Newsletter saveNewsletter(@RequestBody Newsletter Newsletter) {
 		return NewsletterService.save(Newsletter);
 	}
 
-	@DeleteMapping("Newsletters/{idNewsletter}")
+	@DeleteMapping("/Newsletters/{idNewsletter}")
 	public void deleteNewsletter(@PathVariable("idNewsletter") Long idNewsletter) {
 		NewsletterService.delete(idNewsletter);
 	}
 
-	@PutMapping("Newsletters/{idN}")
+	@PutMapping("/Newsletters/{idN}")
 	public Newsletter updateNewsletter(@PathVariable("idN") Long idNewsletter, @RequestBody Newsletter newsletter) {
 		Newsletter currentNewsletter = NewsletterService.findOne(idNewsletter);
 		currentNewsletter.setDateParution(newsletter.getDateParution());

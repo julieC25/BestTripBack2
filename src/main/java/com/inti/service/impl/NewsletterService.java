@@ -39,16 +39,16 @@ public class NewsletterService implements INewsletterService {
 		newsletterRepository.findById(idNewsletter);
 	}
 
-	/*@Override
-	public List<Newsletter> findByDate(Date dateParution) {
+	@Override
+	public List<Newsletter> findByDateParution(Date dateParution) {
 
-		return newsletterRepository.findByDate(dateParution);
+		return newsletterRepository.findByDateParution(dateParution);
 	}
 
 	@Override
 	public int nbrNewsletter() {
 
 		return newsletterRepository.nbrNewsletter();
-	}*/
+	}
 
 }

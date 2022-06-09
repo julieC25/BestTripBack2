@@ -15,9 +15,9 @@ public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 
 	List<Experience> findByDepense(float depense);
 
-	/*List<Experience> findByTale(String recit);
+	List<Experience> findByRecit(String recit);
 
-	/*@Query(value = "SELECT count(*) FROM Experience", nativeQuery = true)
-	int nbrExperience();*/
+	@Query(value = "SELECT count(*) FROM Experience", nativeQuery = true)
+	int nbrExperience();
 
 }
