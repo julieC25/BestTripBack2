@@ -111,6 +111,38 @@ public class Pays implements Serializable {
 		this.numeroUtile = numeroUtile;
 	}
 
+	public List<Guide> getGuides() {
+		return guides;
+	}
+
+	public void setGuides(List<Guide> guides) {
+		this.guides = guides;
+	}
+
+	public List<Experience> getExperiences() {
+		return experiences;
+	}
+
+	public void setExperiences(List<Experience> experiences) {
+		this.experiences = experiences;
+	}
+
+	public List<Ville> getVilles() {
+		return villes;
+	}
+
+	public void setVilles(List<Ville> villes) {
+		this.villes = villes;
+	}
+
+	public List<Avis> getAvis() {
+		return avis;
+	}
+
+	public void setAvis(List<Avis> avis) {
+		this.avis = avis;
+	}
+
 	@Override
 	public String toString() {
 		return "Pays [idPays=" + idPays + ", nomPays=" + nomPays + ", securite=" + securite + ", langue=" + langue + ", surface="
