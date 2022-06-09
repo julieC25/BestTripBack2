@@ -19,9 +19,9 @@ public class Pays implements Serializable {
 	private String nomPays;
 	private String securite;
 	private String langue;
-	private String surface;
+	private int surface;
 	private boolean conduiteSens = true;
-	private int visa;
+	private String visa;
 	private String numeroUtile;
 
 	@OneToMany(mappedBy = "pays")
@@ -36,7 +36,7 @@ public class Pays implements Serializable {
 	public Pays() {
 	}
 
-	public Pays(String nomPays, String securite, String langue, String surface, boolean conduiteSens, int visa,
+	public Pays(String nomPays, String securite, String langue, int surface, boolean conduiteSens, String visa,
 			String numeroUtile) {
 		this.nomPays = nomPays;
 		this.securite = securite;
@@ -47,7 +47,7 @@ public class Pays implements Serializable {
 		this.numeroUtile = numeroUtile;
 	}
 
-	public Pays(String nomPays, String securite, String langue, String surface, boolean conduiteSens, int visa,
+	public Pays(String nomPays, String securite, String langue, int surface, boolean conduiteSens, String visa,
 			String numeroUtile, List<Guide> guides, List<Experience> experiences, List<Ville> villes, List<Avis> avis) {
 		this.nomPays = nomPays;
 		this.securite = securite;
@@ -94,11 +94,11 @@ public class Pays implements Serializable {
 		this.langue = langue;
 	}
 
-	public String getSurface() {
+	public int getSurface() {
 		return surface;
 	}
 
-	public void setSurface(String surface) {
+	public void setSurface(int surface) {
 		this.surface = surface;
 	}
 
@@ -110,11 +110,11 @@ public class Pays implements Serializable {
 		this.conduiteSens = conduiteSens;
 	}
 
-	public int getVisa() {
+	public String getVisa() {
 		return visa;
 	}
 
-	public void setVisa(int visa) {
+	public void setVisa(String visa) {
 		this.visa = visa;
 	}
 
