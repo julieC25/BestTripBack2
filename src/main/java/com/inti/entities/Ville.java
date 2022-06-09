@@ -35,7 +35,6 @@ public class Ville implements Serializable {
 	}
 
 	public Ville(String nomVille, String modaliteTransport, Long nbHabitants, List<Lieu> lieux) {
-		super();
 		this.nomVille = nomVille;
 		this.modaliteTransport = modaliteTransport;
 		this.nbHabitants = nbHabitants;
@@ -43,7 +42,6 @@ public class Ville implements Serializable {
 	}
 
 	public Ville(String nomVille, String modaliteTransport, Long nbHabitants) {
-		super();
 		this.nomVille = nomVille;
 		this.modaliteTransport = modaliteTransport;
 		this.nbHabitants = nbHabitants;
@@ -51,7 +49,6 @@ public class Ville implements Serializable {
 	
 	public Ville(String nomVille, String modaliteTransport, Long nbHabitants, List<Lieu> lieux, List<Avis> avis,
 			Pays pays) {
-		super();
 		this.nomVille = nomVille;
 		this.modaliteTransport = modaliteTransport;
 		this.nbHabitants = nbHabitants;

@@ -37,4 +37,9 @@ public class VilleService implements IVilleService {
 		
 	}
 
+	/* @Override
+	public List<Ville> findByNomPays(String nomPays) {
+	return villeRepository.findByNomPays(nomPays);
+	} */
+
 }

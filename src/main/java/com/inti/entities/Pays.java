@@ -16,7 +16,7 @@ public class Pays implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPays;
-	private String nom;
+	private String nomPays;
 	private String securite;
 	private String langue;
 	private String surface;
@@ -36,9 +36,9 @@ public class Pays implements Serializable {
 	public Pays() {
 	}
 
-	public Pays(String nom, String securite, String langue, String surface, boolean conduiteSens, int visa,
+	public Pays(String nomPays, String securite, String langue, String surface, boolean conduiteSens, int visa,
 			String numeroUtile) {
-		this.nom = nom;
+		this.nomPays = nomPays;
 		this.securite = securite;
 		this.langue = langue;
 		this.surface = surface;
@@ -55,12 +55,12 @@ public class Pays implements Serializable {
 		this.idPays = idPays;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getNomPays() {
+		return nomPays;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomPays(String nomPays) {
+		this.nomPays = nomPays;
 	}
 
 	public String getSecurite() {
@@ -113,7 +113,7 @@ public class Pays implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pays [idPays=" + idPays + ", nom=" + nom + ", securite=" + securite + ", langue=" + langue + ", surface="
+		return "Pays [idPays=" + idPays + ", nomPays=" + nomPays + ", securite=" + securite + ", langue=" + langue + ", surface="
 				+ surface + ", conduiteSens=" + conduiteSens + ", visa=" + visa + ", numeroUtile=" + numeroUtile + "]";
 	}
 
