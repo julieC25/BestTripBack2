@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,8 @@ import com.inti.service.interfaces.IUtilisateurService;
 public class UtilisateurController {
 	@Autowired
 	IUtilisateurService utilisateurService;
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@GetMapping("/utilisateurs")
 	public List<Utilisateur> findAll() {
@@ -39,7 +42,7 @@ public class UtilisateurController {
 			@RequestParam("imageProfil") MultipartFile imageProfil,@RequestParam("email") String email,
 			@RequestParam("enabled") boolean enabled,@RequestParam("abonnementNewsletter") boolean abonnementNewsletter) {
 		try {
-			Utilisateur currenUser = new Utilisateur(nom, prenom, username, password, email, abonnementNewsletter, enabled, null, imageProfil.getBytes());
+			Utilisateur currenUser = new Utilisateur(nom, prenom, username, passwordEncoder.encode(password), email, abonnementNewsletter, enabled, null, imageProfil.getBytes());
 			currenUser.setImageProfil(imageProfil.getBytes());
 			utilisateurService.save(currenUser);
 			return "File uploaded successfully! filename=" + imageProfil.getOriginalFilename();
