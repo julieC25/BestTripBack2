@@ -35,4 +35,9 @@ public class HotelService implements IHotelService {
 		
 	}
 
+	@Override
+	public List<Hotel> findByNbEtoiles(int nbEtoiles) {
+		return hotelRepository.findByNbEtoiles(nbEtoiles);
+	}
+
 }

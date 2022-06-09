@@ -10,7 +10,7 @@ import javax.persistence.Lob;
 @Entity
 @DiscriminatorValue("restaurant")
 public class Restaurant extends Lieu implements Serializable {
-	private Long nbEtoiles;
+	private int nbEtoiles;
 	private boolean accesHandicapes;
 	private String specialite;
 	@Lob
@@ -25,23 +25,23 @@ public class Restaurant extends Lieu implements Serializable {
 	public Restaurant(String nom, String localisation, String nbVisiteurs) {
 		super(nom, localisation, nbVisiteurs);
 	}
-	public Restaurant(Long nbEtoiles, boolean accesHandicapes, String specialite, byte[] carte) {
+	public Restaurant(int nbEtoiles, boolean accesHandicapes, String specialite, byte[] carte) {
 		super();
 		this.nbEtoiles = nbEtoiles;
 		this.accesHandicapes = accesHandicapes;
 		this.specialite = specialite;
 		this.carte = carte;
 	}
-	public Restaurant(Long nbEtoiles, boolean accesHandicapes, String specialite) {
+	public Restaurant(int nbEtoiles, boolean accesHandicapes, String specialite) {
 		super();
 		this.nbEtoiles = nbEtoiles;
 		this.accesHandicapes = accesHandicapes;
 		this.specialite = specialite;
 	}
-	public Long getNbEtoiles() {
+	public int getNbEtoiles() {
 		return nbEtoiles;
 	}
-	public void setNbEtoiles(Long nbEtoiles) {
+	public void setNbEtoiles(int nbEtoiles) {
 		this.nbEtoiles = nbEtoiles;
 	}
 	public boolean isAccesHandicapes() {

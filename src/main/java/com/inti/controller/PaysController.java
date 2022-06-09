@@ -46,7 +46,7 @@ public class PaysController {
 	@PutMapping("payss/{idP}")
 	public Pays updatePays(@PathVariable("idP") Long idPays, @RequestBody Pays pays) {
 		Pays currentPays = paysService.findOne(idPays);
-		currentPays.setNom(pays.getNom());
+		currentPays.setNomPays(pays.getNomPays());
 		return paysService.save(currentPays);
 	}
 }

@@ -12,4 +12,6 @@ public interface IRestaurantService {
 	Restaurant save(Restaurant restaurant);
 
 	void delete(Long idLieu);
+	
+	List<Restaurant> findByNbEtoiles (int nbEtoiles);
 }

@@ -12,4 +12,6 @@ public interface IVilleService {
 	Ville save(Ville ville);
 
 	void delete(Long idVille);
+	
+	// List<Ville> findByNomPays (String nomPays);
 }

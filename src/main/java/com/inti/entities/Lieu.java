@@ -37,7 +37,6 @@ public class Lieu implements Serializable {
 	}
 
 	public Lieu(String nom, String localisation, String nbVisiteurs, Ville ville) {
-		super();
 		this.nom = nom;
 		this.localisation = localisation;
 		this.nbVisiteurs = nbVisiteurs;
@@ -45,10 +44,18 @@ public class Lieu implements Serializable {
 	}
 
 	public Lieu(String nom, String localisation, String nbVisiteurs) {
-		super();
 		this.nom = nom;
 		this.localisation = localisation;
 		this.nbVisiteurs = nbVisiteurs;
+	}
+	
+	
+	public Lieu(String nom, String localisation, String nbVisiteurs, Ville ville, List<Avis> avis) {
+		this.nom = nom;
+		this.localisation = localisation;
+		this.nbVisiteurs = nbVisiteurs;
+		this.ville = ville;
+		this.avis = avis;
 	}
 
 	public Long getIdLieu() {
@@ -89,6 +96,15 @@ public class Lieu implements Serializable {
 
 	public void setVille(Ville ville) {
 		this.ville = ville;
+	}
+	
+
+	public List<Avis> getAvis() {
+		return avis;
+	}
+
+	public void setAvis(List<Avis> avis) {
+		this.avis = avis;
 	}
 
 	@Override
