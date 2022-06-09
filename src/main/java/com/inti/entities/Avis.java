@@ -34,15 +34,25 @@ public class Avis implements Serializable {
 	private Pays pays;
 
 	public Avis() {
-		super();
 	}
 
 	public Avis(String titre, int note, String recommandation, CompagniesTransport compTransport) {
-		super();
 		this.titre = titre;
 		this.note = note;
 		this.recommandation = recommandation;
 		this.compTransport = compTransport;
+	}
+
+	public Avis(String titre, int note, String recommandation, CompagniesTransport compTransport,
+			Utilisateur utilisateur, Ville ville, Lieu lieu, Pays pays) {
+		this.titre = titre;
+		this.note = note;
+		this.recommandation = recommandation;
+		this.compTransport = compTransport;
+		this.utilisateur = utilisateur;
+		this.ville = ville;
+		this.lieu = lieu;
+		this.pays = pays;
 	}
 
 	public Long getIdAvis() {
@@ -85,10 +95,43 @@ public class Avis implements Serializable {
 		this.compTransport = compTransport;
 	}
 
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	public Ville getVille() {
+		return ville;
+	}
+
+	public void setVille(Ville ville) {
+		this.ville = ville;
+	}
+
+	public Lieu getLieu() {
+		return lieu;
+	}
+
+	public void setLieu(Lieu lieu) {
+		this.lieu = lieu;
+	}
+
+	public Pays getPays() {
+		return pays;
+	}
+
+	public void setPays(Pays pays) {
+		this.pays = pays;
+	}
+
 	@Override
 	public String toString() {
 		return "Avis [idAvis=" + idAvis + ", titre=" + titre + ", note=" + note + ", recommandation=" + recommandation
-				+ ", compTransport=" + compTransport + "]";
+				+ ", compTransport=" + compTransport + ", utilisateur=" + utilisateur + ", ville=" + ville + ", lieu="
+				+ lieu + ", pays=" + pays + "]";
 	}
 
 }
