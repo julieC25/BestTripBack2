@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Statistique;
+import com.inti.service.interfaces.IPointStatistiqueService;
 import com.inti.service.interfaces.IStatistiqueService;
 
 @RestController
@@ -18,10 +19,18 @@ import com.inti.service.interfaces.IStatistiqueService;
 public class StatistiqueController {
 	@Autowired
 	IStatistiqueService statistiqueService;
+	@Autowired
+	IPointStatistiqueService pointStatistiqueService;
 	
 	@GetMapping("/statistiques")
 	public List<Statistique> findAll(){
 		return statistiqueService.findAll();
+	}
+	
+	@PostMapping("/generatePointsStatistique")
+	public Statistique generatePointsStatistique(@RequestBody Statistique statistique,
+			@RequestBody String[] valeursX, @RequestBody float[] valeursY) {
+		return statistiqueService.generateStatistique(statistique, valeursX, valeursY);
 	}
 	
 	@GetMapping("statistiques/{idStatistique}")

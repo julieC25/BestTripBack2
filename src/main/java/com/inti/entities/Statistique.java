@@ -12,6 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.inti.service.interfaces.IPointStatistiqueService;
+
 @Entity
 public class Statistique implements Serializable{
 	@Id
@@ -26,7 +30,6 @@ public class Statistique implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="id_utilisateur")
 	private Utilisateur utilisateur;
-	
 	
 	public Statistique() {
 		
@@ -83,5 +86,7 @@ public class Statistique implements Serializable{
 		this.utilisateur = utilisateur;
 	}
 	
-	
+	public void addOnePointStatistique(PointStatistique pointStatistique) {
+		this.valeurs.add(pointStatistique);
+	}
 }
