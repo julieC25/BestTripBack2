@@ -12,7 +12,7 @@ public class Musee extends Lieu implements Serializable  {
 	private boolean accesHandicapes;
 	private boolean guideAudio;
 	private String style;
-	private Long horaires;
+	private String horaires;
 	public Musee() {
 		super();
 	}
@@ -22,7 +22,7 @@ public class Musee extends Lieu implements Serializable  {
 	public Musee(String nom, String localisation, String nbVisiteurs) {
 		super(nom, localisation, nbVisiteurs);
 	}
-	public Musee(Long entree, boolean accesHandicapes, boolean guideAudio, String style, Long horaires) {
+	public Musee(Long entree, boolean accesHandicapes, boolean guideAudio, String style, String horaires) {
 		super();
 		this.entree = entree;
 		this.accesHandicapes = accesHandicapes;
@@ -54,10 +54,10 @@ public class Musee extends Lieu implements Serializable  {
 	public void setStyle(String style) {
 		this.style = style;
 	}
-	public Long getHoraires() {
+	public String getHoraires() {
 		return horaires;
 	}
-	public void setHoraires(Long horaires) {
+	public void setHoraires(String horaires) {
 		this.horaires = horaires;
 	}
 	@Override
