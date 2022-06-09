@@ -37,7 +37,7 @@ public class GuideController {
 	}
 
 	@PostMapping("/guides")
-	public String saveGuide(@RequestParam("titre") String titre, @RequestParam("approbation") String approbation,
+	public String saveGuide(@RequestParam("titre") String titre, @RequestParam("approbation") boolean approbation,
 			@RequestParam("type") String type, @RequestParam("fichierPdf") MultipartFile fichierPdf) {
 		try {
 			Guide currenGuide = new Guide(titre, approbation, type, fichierPdf.getBytes());

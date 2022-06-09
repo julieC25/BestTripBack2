@@ -17,6 +17,7 @@ public class Avis implements Serializable {
 	private String titre;
 	private int note;
 	private String recommandation;
+	private String description;
 	@ManyToOne
 	@JoinColumn(name = "id_compagnie")
 	private CompagniesTransport compTransport;
@@ -53,6 +54,14 @@ public class Avis implements Serializable {
 		this.ville = ville;
 		this.lieu = lieu;
 		this.pays = pays;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Long getIdAvis() {

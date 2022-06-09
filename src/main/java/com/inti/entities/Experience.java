@@ -18,7 +18,7 @@ public class Experience implements Serializable {
 	private Long idExperience;
 	private String recit;
 	private Date date;
-	private Date dureeExperience;
+	private int dureeExperience;
 	private float depense;
 	private boolean approbation = true;
 	// @Lob
@@ -33,7 +33,7 @@ public class Experience implements Serializable {
 	public Experience() {
 	}
 
-	public Experience(String recit, Date date, Date dureeExperience, float depense, boolean approbation, Pays pays) {
+	public Experience(String recit, Date date, int dureeExperience, float depense, boolean approbation, Pays pays) {
 		this.recit = recit;
 		this.date = date;
 		this.dureeExperience = dureeExperience;
@@ -41,7 +41,7 @@ public class Experience implements Serializable {
 		this.approbation = approbation;
 	}
 
-	public Experience(String recit, Date date, Date dureeExperience, float depense, boolean approbation, Pays pays,
+	public Experience(String recit, Date date, int dureeExperience, float depense, boolean approbation, Pays pays,
 			Utilisateur utilisateur) {
 		this.recit = recit;
 		this.date = date;
@@ -76,11 +76,11 @@ public class Experience implements Serializable {
 		this.date = date;
 	}
 
-	public Date getDureeExperience() {
+	public int getDureeExperience() {
 		return dureeExperience;
 	}
 
-	public void setDureeExperience(Date dureeExperience) {
+	public void setDureeExperience(int dureeExperience) {
 		this.dureeExperience = dureeExperience;
 	}
 
