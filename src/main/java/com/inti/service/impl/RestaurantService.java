@@ -36,4 +36,9 @@ public class RestaurantService implements IRestaurantService {
 		
 	}
 
+	@Override
+	public List<Restaurant> findByNbEtoiles(int nbEtoiles) {
+		return restaurantRepository.findByNbEtoiles(nbEtoiles);
+	}
+
 }

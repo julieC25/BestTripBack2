@@ -12,4 +12,6 @@ public interface IHotelService {
 	Hotel save(Hotel hotel);
 
 	void delete(Long idLieu);
+	
+	List<Hotel> findByNbEtoiles (int nbEtoiles);
 }
