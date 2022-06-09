@@ -31,8 +31,8 @@ public class CompagniesTransportController {
 	}
 
 	@PostMapping("/compagniesTransport")
-	public CompagniesTransport saveRole(@RequestBody CompagniesTransport locVoitures) {
-		return compagniesTransportService.save(locVoitures);
+	public CompagniesTransport saveRole(@RequestBody CompagniesTransport compTransport) {
+		return compagniesTransportService.save(compTransport);
 	}
 
 	@DeleteMapping("/compagniesTransport/{idCompagniesTransport}")

@@ -31,8 +31,8 @@ public class CompagnieFerroviereController {
 	}
 
 	@PostMapping("/compagnieFerroviere")
-	public CompagnieFerroviere saveRole(@RequestBody CompagnieFerroviere locVoitures) {
-		return compagnieFerroviereService.save(locVoitures);
+	public CompagnieFerroviere saveRole(@RequestBody CompagnieFerroviere compFerroviere) {
+		return compagnieFerroviereService.save(compFerroviere);
 	}
 
 	@DeleteMapping("/compagnieFerroviere/{idCompagnieFerroviere}")

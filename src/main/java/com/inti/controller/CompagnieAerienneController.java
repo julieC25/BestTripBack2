@@ -31,8 +31,8 @@ public class CompagnieAerienneController {
 	}
 
 	@PostMapping("/compagnieAerienne")
-	public CompagnieAerienne saveRole(@RequestBody CompagnieAerienne locVoitures) {
-		return compagnieAerienneService.save(locVoitures);
+	public CompagnieAerienne saveRole(@RequestBody CompagnieAerienne compAerienne) {
+		return compagnieAerienneService.save(compAerienne);
 	}
 
 	@DeleteMapping("/compagnieAerienne/{idCompagnieAerienne}")
@@ -56,4 +56,3 @@ public class CompagnieAerienneController {
 		return compagnieAerienneService.save(currentCompAerienne);
 	}
 }
-
