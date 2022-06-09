@@ -25,7 +25,7 @@ public class Utilisateur implements Serializable{
 	private String nom;
 	private String prenom;
 	@Column(unique = true)
-	private String login;
+	private String username;
 	private String password;
 	private String email;
 	private boolean abonnementNewsletter;
@@ -54,11 +54,11 @@ public class Utilisateur implements Serializable{
 		
 	}
 	
-	public Utilisateur(String nom, String prenom, String login, String password, String email,
+	public Utilisateur(String nom, String prenom, String username, String password, String email,
 			boolean abonnementNewsletter, boolean enabled, Set<Role> roles, byte[] imageProfil) {
 		this.nom = nom;
 		this.prenom = prenom;
-		this.login = login;
+		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.abonnementNewsletter = abonnementNewsletter;
@@ -105,13 +105,13 @@ public class Utilisateur implements Serializable{
 	}
 
 
-	public String getLogin() {
-		return login;
+	public String getUsername() {
+		return username;
 	}
 
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 
@@ -184,8 +184,8 @@ public class Utilisateur implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nom=" + nom + ", prenom=" + prenom + ", login="
-				+ login + ", password=" + password + ", email=" + email + ", abonnementNewsletter="
+		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nom=" + nom + ", prenom=" + prenom + ", username="
+				+ username + ", password=" + password + ", email=" + email + ", abonnementNewsletter="
 				+ abonnementNewsletter + ", enabled=" + enabled + ", imageProfil=" + Arrays.toString(imageProfil) + "]";
 	}
 	

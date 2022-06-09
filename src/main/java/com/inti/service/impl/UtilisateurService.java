@@ -38,8 +38,8 @@ public class UtilisateurService implements IUtilisateurService {
 	}
 
 	@Override
-	public Utilisateur findByLogin(String login) {
-		return utilisateurRepository.findByLogin(login);
+	public Utilisateur findByUsername(String username) {
+		return utilisateurRepository.findByUsername(username);
 	}
-
+	
 }

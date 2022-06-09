@@ -13,5 +13,6 @@ public interface IUtilisateurService {
 
 	void delete(Long id);
 	
-	Utilisateur findByLogin(String login);
+	Utilisateur findByUsername (String username);
+	
 }
