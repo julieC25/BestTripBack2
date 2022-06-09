@@ -13,4 +13,6 @@ public interface IAvisService {
 
 	void delete(Long id);
 
+	int noteGlobale();
+
 }
