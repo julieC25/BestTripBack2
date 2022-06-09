@@ -23,7 +23,7 @@ public class CompagniesTransport implements Serializable {
 	private Long idCompagnie;
 	private String nom;
 	private String siret;
-	private int coût;
+	private int cout;
 	private boolean ponctualite;
 	@OneToMany(mappedBy = "compTransport")
 	private List<Avis> avis = new ArrayList<>();
@@ -32,11 +32,11 @@ public class CompagniesTransport implements Serializable {
 		super();
 	}
 
-	public CompagniesTransport(String nom, String siret, int coût, boolean ponctualite, List<Avis> avis) {
+	public CompagniesTransport(String nom, String siret, int cout, boolean ponctualite, List<Avis> avis) {
 		super();
 		this.nom = nom;
 		this.siret = siret;
-		this.coût = coût;
+		this.cout = cout;
 		this.ponctualite = ponctualite;
 		this.avis = avis;
 	}
@@ -65,12 +65,12 @@ public class CompagniesTransport implements Serializable {
 		this.siret = siret;
 	}
 
-	public int getCoût() {
-		return coût;
+	public int getCout() {
+		return cout;
 	}
 
-	public void setCoût(int coût) {
-		this.coût = coût;
+	public void setCout(int cout) {
+		this.cout = cout;
 	}
 
 	public boolean isPonctualite() {
@@ -91,8 +91,8 @@ public class CompagniesTransport implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CompagniesTransport [idCompagnie=" + idCompagnie + ", nom=" + nom + ", siret=" + siret + ", coût="
-				+ coût + ", ponctualite=" + ponctualite + ", avis=" + avis + "]";
+		return "CompagniesTransport [idCompagnie=" + idCompagnie + ", nom=" + nom + ", siret=" + siret + ", cout="
+				+ cout + ", ponctualite=" + ponctualite + ", avis=" + avis + "]";
 	}
 
 }
