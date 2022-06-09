@@ -25,7 +25,7 @@ public class PointStatistiqueController {
 		return pointStatistiqueService.findAll();
 	}
 	
-	@GetMapping("pointStatistiques/{idPointStatistique}")
+	@GetMapping("/pointStatistiques/{idPointStatistique}")
 	public PointStatistique findOne(@PathVariable("idPointStatistique") Long id) {
 		return pointStatistiqueService.findOne(id);
 	}

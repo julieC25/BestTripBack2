@@ -51,15 +51,15 @@ public class ExperienceService implements IExperienceService {
 		return experienceRepository.findByDepense(depense);
 	}
 
-	/*@Override
-	public List<Experience> findByTale(String recit) {
+	@Override
+	public List<Experience> findByRecit(String recit) {
 
-		return experienceRepository.findByTale(recit);
+		return experienceRepository.findByRecit(recit);
 	}
 
-	/*@Override
+	@Override
 	public int nbrExperience() {
 
 		return experienceRepository.nbrExperience();
-	}*/
+	}
 }

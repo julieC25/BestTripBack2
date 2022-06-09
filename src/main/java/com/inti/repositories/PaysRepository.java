@@ -10,12 +10,12 @@ import com.inti.entities.Pays;
 
 @Repository
 public interface PaysRepository extends JpaRepository<Pays, Long> {
-	/*List<Pays> findByNomPays(String nomPays);
+	List<Pays> findByNomPays(String nomPays);
 
-	List<Pays> findBySecurity(String security);
+	List<Pays> findBySecurite(String securite);
 
-	List<Pays> findByLanguage(String langue);
+	List<Pays> findByLangue(String langue);
 
 	@Query(value = "SELECT count(*) FROM Pays", nativeQuery = true)
-	int nbrPays();*/
+	int nbrPays();
 }

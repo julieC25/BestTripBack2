@@ -17,7 +17,7 @@ public interface IExperienceService {
 
 	List<Experience> findByDepense(float depense);
 
-	/*List<Experience> findByTale(String recit);
+	List<Experience> findByRecit(String recit);
 
-	/*int nbrExperience();*/
+	int nbrExperience();
 }

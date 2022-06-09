@@ -10,11 +10,11 @@ import com.inti.entities.Guide;
 
 @Repository
 public interface GuideRepository extends JpaRepository<Guide, Long> {
-	/*Guide findByType(String type);
+	Guide findByType(String type);
 
-	List<Guide> findByTitle(String titre);
+	List<Guide> findByTitre(String titre);
 
 	@Query(value = "SELECT count(*) FROM Guide", nativeQuery = true)
-	int nbrGuide();*/
+	int nbrGuide();
 
 }

@@ -33,7 +33,7 @@ public class StatistiqueController {
 		return statistiqueService.generateStatistique(statistique, valeursX, valeursY);
 	}
 	
-	@GetMapping("statistiques/{idStatistique}")
+	@GetMapping("/statistiques/{idStatistique}")
 	public Statistique findOne(@PathVariable("idStatistique") Long id) {
 		return statistiqueService.findOne(id);
 	}

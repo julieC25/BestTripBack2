@@ -23,27 +23,27 @@ public class PaysController {
 	@Autowired 
 	IPaysService paysService;
 
-	@GetMapping("payss")
+	@GetMapping("/payss")
 	public List<Pays> findAll() {
 		return paysService.findAll();
 	}
 
-	@GetMapping("payss/{idP}") 
+	@GetMapping("/payss/{idP}") 
 	public Pays findOne(@PathVariable("idP") Long idPays) {
 		return paysService.findOne(idPays); 
 	}
 
-	@PostMapping("payss") 
+	@PostMapping("/payss") 
 	public Pays savePays(@RequestBody Pays Pays) {
 		return paysService.save(Pays);
 	}
 
-	@DeleteMapping("payss/{idPays}")
+	@DeleteMapping("/payss/{idPays}")
 	public void deletePays(@PathVariable("idPays") Long idPays) {
 		paysService.delete(idPays);
 	}
 
-	@PutMapping("payss/{idP}")
+	@PutMapping("/payss/{idP}")
 	public Pays updatePays(@PathVariable("idP") Long idPays, @RequestBody Pays pays) {
 		Pays currentPays = paysService.findOne(idPays);
 		currentPays.setNomPays(pays.getNomPays());

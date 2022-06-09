@@ -21,27 +21,27 @@ public class ExperienceController {
 	@Autowired 
 	IExperienceService ExperienceService;
 
-	@GetMapping("Experiences")
+	@GetMapping("/Experiences")
 	public List<Experience> findAll() {
 		return ExperienceService.findAll();
 	}
 
-	@GetMapping("Experiences/{idE}") 
+	@GetMapping("/Experiences/{idE}") 
 	public Experience findOne(@PathVariable("idE") Long idExperience) {
 		return ExperienceService.findOne(idExperience); 
 	}
 
-	@PostMapping("Experiences") 
+	@PostMapping("/Experiences") 
 	public Experience saveExperience(@RequestBody Experience Experience) {
 		return ExperienceService.save(Experience);
 	}
 
-	@DeleteMapping("Experiences/{idExperience}")
+	@DeleteMapping("/Experiences/{idExperience}")
 	public void deleteExperience(@PathVariable("idExperience") Long idExperience) {
 		ExperienceService.delete(idExperience);
 	}
 
-	@PutMapping("Experiences/{idE}")
+	@PutMapping("/Experiences/{idE}")
 	public Experience updateExperience(@PathVariable("idE") Long idExperience, @RequestBody Experience experience) {
 		Experience currentExperience = ExperienceService.findOne(idExperience);
 		currentExperience.setRecit(experience.getRecit());

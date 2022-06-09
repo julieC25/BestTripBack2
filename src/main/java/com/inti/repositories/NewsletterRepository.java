@@ -11,8 +11,8 @@ import com.inti.entities.Newsletter;;
 
 @Repository
 public interface NewsletterRepository extends JpaRepository<Newsletter, Long> {
-	/*List<Newsletter> findByDate(Date dateParution);
+	List<Newsletter> findByDateParution(Date dateParution);
 
 	@Query(value = "SELECT count(*) FROM Newsletter", nativeQuery = true)
-	int nbrNewsletter();*/
+	int nbrNewsletter();
 }

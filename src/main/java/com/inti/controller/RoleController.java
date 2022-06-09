@@ -27,7 +27,7 @@ public class RoleController {
 		return roleService.findAll();
 	}
 	
-	@GetMapping("roles/{idRole}")
+	@GetMapping("/roles/{idRole}")
 	public Role findOne(@PathVariable("idRole") Long id) {
 		return roleService.findOne(id);
 	}

@@ -12,9 +12,9 @@ public interface IGuideService {
 
 	void delete(Long idGuide);
 	
-	/*Guide findByType(String type);
+	Guide findByType(String type);
 
-	List<Guide> findByTitle(String titre);
-
-	int nbrGuide();*/
+	List<Guide> findByTitre(String titre);
+	
+	int nbrGuide();
 }

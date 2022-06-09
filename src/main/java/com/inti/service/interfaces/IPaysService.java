@@ -12,11 +12,11 @@ public interface IPaysService {
 
 	void delete(Long idPays);
 	
-	/*List<Pays> findByNomPays (String nomPays);
+	List<Pays> findByNomPays(String nomPays);
 	
-	List<Pays> findBySecurity(String security);
+	List<Pays> findBySecurite(String securite);
 
-	List<Pays> findByLanguage(String langue);
+	List<Pays> findByLangue(String langue);
 
-	int nbrPays();*/
+	int nbrPays();
 }

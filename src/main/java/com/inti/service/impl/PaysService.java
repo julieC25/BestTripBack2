@@ -38,26 +38,26 @@ public class PaysService implements IPaysService {
 		paysRepository.findById(idPays);
 	}
 
-	/*@Override
-	public List<Pays> findByNomPays (String nomPays) {
+	@Override
+	public List<Pays> findByNomPays(String nomPays) {
 		
 		return paysRepository.findByNomPays(nomPays);
 	}
 
 	@Override
-	public List<Pays> findBySecurity(String security) {
+	public List<Pays> findBySecurite(String security) {
 		
-		return paysRepository.findBySecurity(security);
+		return paysRepository.findBySecurite(security);
 	}
 
 	@Override
-	public List<Pays> findByLanguage(String langue) {
+	public List<Pays> findByLangue(String langue) {
 		
-		return paysRepository.findByLanguage(langue);
+		return paysRepository.findByLangue(langue);
 	}
 
 	@Override
 	public int nbrPays() {
 		return paysRepository.nbrPays();
-	}*/
+	}
 }
