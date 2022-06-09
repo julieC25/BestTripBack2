@@ -41,6 +41,17 @@ public class Experience implements Serializable {
 		this.approbation = approbation;
 	}
 
+	public Experience(String recit, Date date, Date dureeExperience, float depense, boolean approbation, Pays pays,
+			Utilisateur utilisateur) {
+		this.recit = recit;
+		this.date = date;
+		this.dureeExperience = dureeExperience;
+		this.depense = depense;
+		this.approbation = approbation;
+		this.pays = pays;
+		this.utilisateur = utilisateur;
+	}
+
 	public Long getIdExperience() {
 		return idExperience;
 	}

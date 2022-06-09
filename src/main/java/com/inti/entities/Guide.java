@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -20,8 +21,9 @@ public class Guide implements Serializable {
 	private Long idGuide;
 	private String titre;
 	private String approbation;
-	private String fichierPdf;
 	private String type;
+	@Lob
+	private byte[] fichierPdf;
 
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
@@ -30,11 +32,19 @@ public class Guide implements Serializable {
 	public Guide() {
 	}
 
-	public Guide(String titre, String approbation, String fichierPdf, String type) {
+	public Guide(String titre, String approbation, String type, byte[] fichierPdf) {
 		this.titre = titre;
 		this.approbation = approbation;
-		this.fichierPdf = fichierPdf;
 		this.type = type;
+		this.fichierPdf = fichierPdf;
+	}
+
+	public Guide(String titre, String approbation, String type, byte[] fichierPdf, Pays pays) {
+		this.titre = titre;
+		this.approbation = approbation;
+		this.type = type;
+		this.fichierPdf = fichierPdf;
+		this.pays = pays;
 	}
 
 	public Long getIdGuide() {
@@ -61,11 +71,11 @@ public class Guide implements Serializable {
 		this.approbation = approbation;
 	}
 
-	public String getFichierPdf() {
+	public byte[] getFichierPdf() {
 		return fichierPdf;
 	}
 
-	public void setFichierPdf(String fichierPdf) {
+	public void setFichierPdf(byte[] fichierPdf) {
 		this.fichierPdf = fichierPdf;
 	}
 
