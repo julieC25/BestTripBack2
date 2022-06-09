@@ -31,8 +31,8 @@ public class CompagnieMaritimeController {
 	}
 
 	@PostMapping("/compagnieMaritime")
-	public CompagnieMaritime saveRole(@RequestBody CompagnieMaritime locVoitures) {
-		return compagnieMaritimeService.save(locVoitures);
+	public CompagnieMaritime saveRole(@RequestBody CompagnieMaritime compMaritime) {
+		return compagnieMaritimeService.save(compMaritime);
 	}
 
 	@DeleteMapping("/compagnieMaritime/{idCompagnieMaritime}")

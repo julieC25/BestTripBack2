@@ -31,8 +31,8 @@ public class AvisController {
 	}
 
 	@PostMapping("/avis")
-	public Avis saveRole(@RequestBody Avis locVoitures) {
-		return avisService.save(locVoitures);
+	public Avis saveRole(@RequestBody Avis avis) {
+		return avisService.save(avis);
 	}
 
 	@DeleteMapping("/avis/{idAvis}")
@@ -48,7 +48,7 @@ public class AvisController {
 	}
 
 	@PatchMapping("/avis/{idAvis}")
-	public Avis updateAvisWithPatch(@PathVariable("idAvis") Long id, @RequestBody Avis compMaritime) {
+	public Avis updateAvisWithPatch(@PathVariable("idAvis") Long id, @RequestBody Avis avis) {
 		Avis currentAvis = avisService.findOne(id);
 		currentAvis.setIdAvis(currentAvis.getIdAvis());
 		return avisService.save(currentAvis);
