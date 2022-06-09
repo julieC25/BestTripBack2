@@ -12,4 +12,6 @@ public interface IStatistiqueService {
 	Statistique save(Statistique Statistique);
 
 	void delete(Long id);
+	
+	Statistique generateStatistique(Statistique statistique, String[] valeursX, float[] valeursY);
 }
