@@ -35,4 +35,10 @@ public class AvisService implements IAvisService {
 
 	}
 
+	@Override
+	public int noteGlobale() {
+		return avisRepository.noteGlobale();
+
+	}
+
 }
