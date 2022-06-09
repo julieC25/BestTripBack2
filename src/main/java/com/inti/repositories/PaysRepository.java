@@ -10,7 +10,7 @@ import com.inti.entities.Pays;
 
 @Repository
 public interface PaysRepository extends JpaRepository<Pays, Long> {
-	/*List<Pays> findByNom(String nom);
+	/*List<Pays> findByNomPays(String nomPays);
 
 	List<Pays> findBySecurity(String security);
 

@@ -39,9 +39,9 @@ public class PaysService implements IPaysService {
 	}
 
 	/*@Override
-	public List<Pays> findByNom(String nom) {
+	public List<Pays> findByNomPays (String nomPays) {
 		
-		return paysRepository.findByNom(nom);
+		return paysRepository.findByNomPays(nomPays);
 	}
 
 	@Override

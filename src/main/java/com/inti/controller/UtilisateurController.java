@@ -35,11 +35,11 @@ public class UtilisateurController {
 
 	@PostMapping("/utilisateurs")
 	public String saveUtilisateur(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
-			@RequestParam("login") String login, @RequestParam("password") String password,
+			@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("imageProfil") MultipartFile imageProfil,@RequestParam("email") String email,
 			@RequestParam("enabled") boolean enabled,@RequestParam("abonnementNewsletter") boolean abonnementNewsletter) {
 		try {
-			Utilisateur currenUser = new Utilisateur(nom, prenom, login, password, email, abonnementNewsletter, enabled, null, imageProfil.getBytes());
+			Utilisateur currenUser = new Utilisateur(nom, prenom, username, password, email, abonnementNewsletter, enabled, null, imageProfil.getBytes());
 			currenUser.setImageProfil(imageProfil.getBytes());
 			utilisateurService.save(currenUser);
 			return "File uploaded successfully! filename=" + imageProfil.getOriginalFilename();

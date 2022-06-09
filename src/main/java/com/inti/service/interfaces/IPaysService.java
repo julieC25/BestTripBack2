@@ -12,7 +12,7 @@ public interface IPaysService {
 
 	void delete(Long idPays);
 	
-	/*List<Pays> findByNom(String nom);
+	/*List<Pays> findByNomPays (String nomPays);
 	
 	List<Pays> findBySecurity(String security);
 
