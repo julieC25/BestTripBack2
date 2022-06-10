@@ -20,7 +20,7 @@ public class Guide implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idGuide;
 	private String titre;
-	private boolean approbation;
+	private boolean approbation = true;
 	private String type;
 	@Lob
 	private byte[] fichierPdf;
