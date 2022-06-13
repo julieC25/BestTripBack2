@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Pays implements Serializable {
+@DiscriminatorValue("pays")
+public class Pays extends Continent implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPays;
@@ -45,6 +47,11 @@ public class Pays implements Serializable {
 		this.conduiteSens = conduiteSens;
 		this.visa = visa;
 		this.numeroUtile = numeroUtile;
+	}
+	
+
+	public Pays(String nomContinent) {
+		super(nomContinent);
 	}
 
 	public Pays(String nomPays, String securite, String langue, int surface, boolean conduiteSens, String visa,
