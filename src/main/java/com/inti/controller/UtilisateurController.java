@@ -40,9 +40,17 @@ public class UtilisateurController {
 	public String saveUtilisateur(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("imageProfil") MultipartFile imageProfil,@RequestParam("email") String email,
-			@RequestParam("enabled") boolean enabled,@RequestParam("abonnementNewsletter") boolean abonnementNewsletter) {
+			@RequestParam("enabled") String enabled,@RequestParam("abonnementNewsletter") String abonnementNewsletter) {
+		boolean enabledBoolean=false;
+		boolean abonnementNewsletterBoolean=false;
+		if (enabled=="true") {
+			enabledBoolean = true;
+		}
+		if(abonnementNewsletter=="true") {
+			abonnementNewsletterBoolean = true;
+		}
 		try {
-			Utilisateur currenUser = new Utilisateur(nom, prenom, username, passwordEncoder.encode(password), email, abonnementNewsletter, enabled, null, imageProfil.getBytes());
+			Utilisateur currenUser = new Utilisateur(nom, prenom, username, passwordEncoder.encode(password), email, abonnementNewsletterBoolean, enabledBoolean, null, imageProfil.getBytes());
 			currenUser.setImageProfil(imageProfil.getBytes());
 			utilisateurService.save(currenUser);
 			return "File uploaded successfully! filename=" + imageProfil.getOriginalFilename();

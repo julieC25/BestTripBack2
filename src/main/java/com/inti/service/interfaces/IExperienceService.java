@@ -20,4 +20,6 @@ public interface IExperienceService {
 	List<Experience> findByRecit(String recit);
 
 	int nbrExperience();
+	
+	int[] countByMonth();
 }

@@ -62,4 +62,14 @@ public class ExperienceService implements IExperienceService {
 
 		return experienceRepository.nbrExperience();
 	}
+
+	@Override
+	public int[] countByMonth() {
+		List<Experience> experiences = experienceRepository.findAll();
+		int[] nbExperience = {0,0,0,0,0,0,0,0,0,0,0,0};
+		for (Experience experience : experiences) {
+			nbExperience[experience.getDate().getMonth()]++;
+		}
+		return nbExperience;
+	}
 }
