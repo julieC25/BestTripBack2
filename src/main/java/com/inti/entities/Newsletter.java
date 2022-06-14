@@ -16,6 +16,7 @@ public class Newsletter implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idNewsletter;
+	private String nom;
 	private Date dateParution;
 	private String corps;
 
@@ -33,6 +34,14 @@ public class Newsletter implements Serializable {
 	public Newsletter(Date dateParution, Utilisateur utilisateur) {
 		this.dateParution = dateParution;
 		this.utilisateur = utilisateur;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public Long getIdNewsletter() {

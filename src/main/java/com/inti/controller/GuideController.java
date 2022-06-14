@@ -49,7 +49,32 @@ public class GuideController {
 			return "Fail! maybe you had uploaded the file before or the file's size > 500kb";
 		}
 	}
-
+	@PostMapping("/guides/rawdata")
+	public Guide saveGuideRaw(@RequestBody Guide guide) {
+		byte[] file = guideService.findOne(guide.getIdGuide()).getFichierPdf();
+		guide.setFichierPdf(file);
+		return guideService.save(guide);
+	}
+	@PostMapping("/guides/file/{idGuide}")
+	public String saveGuideFile(@PathVariable("idGuide") Long id,@RequestParam("fichierPdf") MultipartFile fichierPdf) {
+		try {
+			Guide currenGuide = guideService.findOne(id);
+			currenGuide.setFichierPdf(fichierPdf.getBytes());
+			guideService.save(currenGuide);
+			return "File uploaded successfully! filename=" + fichierPdf.getOriginalFilename();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return "Fail! maybe you had uploaded the file before or the file's size > 500kb";
+		}
+	}
+	
+	@DeleteMapping("/guides/removefile/{idGuide}")
+	public void deleteFileFromGuide(@PathVariable("idGuide") Long idGuide) {
+		Guide guide = guideService.findOne(idGuide);
+		guide.setFichierPdf(null);
+		guideService.save(guide);
+	}
+	
 	@DeleteMapping("/guides/{idGuide}")
 	public void deleteguide(@PathVariable("idGuide") Long idGuide) {
 		guideService.delete(idGuide);
