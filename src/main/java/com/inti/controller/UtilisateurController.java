@@ -1,6 +1,7 @@
 package com.inti.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.inti.entities.Role;
 import com.inti.entities.Utilisateur;
 import com.inti.service.interfaces.IUtilisateurService;
 
@@ -58,6 +60,14 @@ public class UtilisateurController {
 			ex.printStackTrace();
 			return "Fail! maybe you had uploaded the file before or the file's size > 500kb";
 		}
+	}
+	
+	@PostMapping("/utilisateurs/updateRole/{idUtilisateur}")
+	public Utilisateur updateRoles(@PathVariable("idUtilisateur") Long id, @RequestBody Set<Role> roles) {
+		Utilisateur oldUser = utilisateurService.findOne(id);
+		oldUser.setRoles(roles);
+		utilisateurService.save(oldUser);
+		return oldUser;
 	}
 
 	@DeleteMapping("/utilisateurs/{idUtilisateur}")
