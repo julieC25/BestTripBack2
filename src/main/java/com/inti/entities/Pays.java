@@ -15,8 +15,9 @@ import javax.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("pays")
 public class Pays extends Continent implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true)
 	private Long idPays;
 	private String nomPays;
 	private String securite;
