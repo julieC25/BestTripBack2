@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @DiscriminatorValue("pays")
 public class Pays extends Continent implements Serializable {
@@ -26,11 +29,11 @@ public class Pays extends Continent implements Serializable {
 	private boolean conduiteSens = true;
 	private String visa;
 	private String numeroUtile;
-
 	@OneToMany(mappedBy = "pays")
 	private List<Guide> guides = new ArrayList<>();
 	@OneToMany(mappedBy = "pays")
 	private List<Experience> experiences = new ArrayList<>();
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Ville> villes = new ArrayList<>();
 	@OneToMany(mappedBy = "pays")

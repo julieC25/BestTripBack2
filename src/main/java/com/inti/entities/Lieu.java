@@ -16,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Inheritance (strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type",discriminatorType=DiscriminatorType.STRING)
@@ -26,6 +29,7 @@ public class Lieu implements Serializable {
 	private String nom;
 	private String localisation;
 	private String nbVisiteurs;
+	@JsonIgnoreProperties("lieux")
 	@ManyToOne
 	@JoinColumn(name="idVille")
 	private Ville ville;

@@ -19,7 +19,10 @@ public class LoginController {
 	@CrossOrigin
 	@RequestMapping(value="/user")
 	public Utilisateur login(Principal principal) {
-		return utilisateurService.findByUsername(principal.getName());
+		Utilisateur current = utilisateurService.findByUsername(principal.getName());
+		current.setNbConnexion(current.getNbConnexion()+1);
+		utilisateurService.save(current);
+		return current;
 	}
 
 }

@@ -30,6 +30,7 @@ public class Utilisateur implements Serializable{
 	private String email;
 	private boolean abonnementNewsletter;
 	private boolean enabled;
+	private int nbConnexion;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="GUIDE_AUTHEUR",joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"),
 					   inverseJoinColumns = @JoinColumn(name="id_guide",referencedColumnName="idGuide"))
@@ -54,8 +55,40 @@ public class Utilisateur implements Serializable{
 		
 	}
 	
+	public int getNbConnexion() {
+		return nbConnexion;
+	}
+
+	public void setNbConnexion(int nbConnexion) {
+		this.nbConnexion = nbConnexion;
+	}
+
+	public Set<Guide> getGuides() {
+		return guides;
+	}
+
+	public void setGuides(Set<Guide> guides) {
+		this.guides = guides;
+	}
+
+	public Set<Newsletter> getNewsletters() {
+		return newsletters;
+	}
+
+	public void setNewsletters(Set<Newsletter> newsletters) {
+		this.newsletters = newsletters;
+	}
+
+	public Set<Experience> getExperiences() {
+		return experiences;
+	}
+
+	public void setExperiences(Set<Experience> experiences) {
+		this.experiences = experiences;
+	}
+
 	public Utilisateur(String nom, String prenom, String username, String password, String email,
-			boolean abonnementNewsletter, boolean enabled, Set<Role> roles, byte[] imageProfil) {
+			boolean abonnementNewsletter, boolean enabled, Set<Role> roles, byte[] imageProfil,int nbConnexion) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.username = username;
@@ -65,6 +98,7 @@ public class Utilisateur implements Serializable{
 		this.enabled = enabled;
 		this.roles = roles;
 		this.imageProfil = imageProfil;
+		this.nbConnexion = nbConnexion;
 	}
 	
 	
