@@ -42,9 +42,11 @@ public class UtilisateurController {
 	public String saveUtilisateur(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("imageProfil") MultipartFile imageProfil,@RequestParam("email") String email,
-			@RequestParam("enabled") String enabled,@RequestParam("abonnementNewsletter") String abonnementNewsletter) {
+			@RequestParam("enabled") String enabled,@RequestParam("abonnementNewsletter") String abonnementNewsletter,
+			@RequestParam("nbConnexion") String nbConnexion) {
 		boolean enabledBoolean=false;
 		boolean abonnementNewsletterBoolean=false;
+		int nbConnexionInt = Integer.parseInt(nbConnexion);
 		if (enabled=="true") {
 			enabledBoolean = true;
 		}
@@ -52,7 +54,7 @@ public class UtilisateurController {
 			abonnementNewsletterBoolean = true;
 		}
 		try {
-			Utilisateur currenUser = new Utilisateur(nom, prenom, username, passwordEncoder.encode(password), email, abonnementNewsletterBoolean, enabledBoolean, null, imageProfil.getBytes());
+			Utilisateur currenUser = new Utilisateur(nom, prenom, username, passwordEncoder.encode(password), email, abonnementNewsletterBoolean, enabledBoolean, null, imageProfil.getBytes(),nbConnexionInt);
 			currenUser.setImageProfil(imageProfil.getBytes());
 			utilisateurService.save(currenUser);
 			return "File uploaded successfully! filename=" + imageProfil.getOriginalFilename();
