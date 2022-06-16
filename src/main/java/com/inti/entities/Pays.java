@@ -29,13 +29,16 @@ public class Pays extends Continent implements Serializable {
 	private boolean conduiteSens = true;
 	private String visa;
 	private String numeroUtile;
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Guide> guides = new ArrayList<>();
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Experience> experiences = new ArrayList<>();
 	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Ville> villes = new ArrayList<>();
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Avis> avis = new ArrayList<>();
 

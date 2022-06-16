@@ -27,6 +27,7 @@ public class Ville implements Serializable {
 	@JsonIgnoreProperties("ville")
 	@OneToMany(mappedBy = "ville")
 	private List<Lieu> lieux = new ArrayList<>();
+	@JsonIgnoreProperties("ville")
 	@OneToMany(mappedBy = "ville")
 	private List<Avis> avis = new ArrayList<>();
 	@JsonIgnoreProperties("villes")

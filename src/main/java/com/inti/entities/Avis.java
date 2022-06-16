@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Avis implements Serializable {
 	@Id
@@ -18,18 +20,23 @@ public class Avis implements Serializable {
 	private int note;
 	private String recommandation;
 	private String description;
+	@JsonIgnoreProperties("avis")
 	@ManyToOne
 	@JoinColumn(name = "id_compagnie")
 	private CompagniesTransport compTransport;
+	@JsonIgnoreProperties("avisListe")
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
+	@JsonIgnoreProperties("avis")
 	@ManyToOne
 	@JoinColumn(name = "id_ville")
 	private Ville ville;
+	@JsonIgnoreProperties("avis")
 	@ManyToOne
 	@JoinColumn(name = "id_lieu")
 	private Lieu lieu;
+	@JsonIgnoreProperties("avis")
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
 	private Pays pays;

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class PointStatistique implements Serializable{
 	@Id
@@ -16,6 +18,7 @@ public class PointStatistique implements Serializable{
 	private Long idPoint;
 	private String valeurX;
 	private float valeurY;
+	@JsonIgnoreProperties("valeurs")
 	@ManyToOne
 	@JoinColumn(name="id_statistique")
 	private Statistique statistique;

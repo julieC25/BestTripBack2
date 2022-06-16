@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Newsletter implements Serializable {
 	@Id
@@ -19,7 +21,7 @@ public class Newsletter implements Serializable {
 	private String nom;
 	private Date dateParution;
 	private String corps;
-
+	@JsonIgnoreProperties("newsletters")
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;

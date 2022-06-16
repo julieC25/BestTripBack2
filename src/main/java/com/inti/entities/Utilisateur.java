@@ -17,6 +17,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Utilisateur implements Serializable{
 	@Id
@@ -37,16 +39,20 @@ public class Utilisateur implements Serializable{
 	private Set<Guide> guides = new HashSet<>();
 	@Lob
 	private byte[] imageProfil;
+	@JsonIgnoreProperties("utilisateur")
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<Statistique> statistiques;
+	@JsonIgnoreProperties("utilisateur")
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<Avis> avisListe;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="PROFILS",joinColumns = @JoinColumn(name="id_user",referencedColumnName="idUtilisateur"),
 					   inverseJoinColumns = @JoinColumn(name="id_role",referencedColumnName="idRole"))
 	private Set<Role> roles = new HashSet<>();
+	@JsonIgnoreProperties("utilisateur")
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<Newsletter> newsletters;
+	@JsonIgnoreProperties("utilisateur")
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<Experience> experiences;
 	

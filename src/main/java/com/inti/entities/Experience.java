@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 //import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Experience implements Serializable {
 	@Id
@@ -23,9 +25,11 @@ public class Experience implements Serializable {
 	private boolean approbation = true;
 	// @Lob
 	// private byte[] image;
+	@JsonIgnoreProperties("experiences")
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
 	private Pays pays;
+	@JsonIgnoreProperties("experiences")
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
