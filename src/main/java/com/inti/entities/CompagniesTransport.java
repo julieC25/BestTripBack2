@@ -14,6 +14,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeTransport", discriminatorType = DiscriminatorType.STRING)
@@ -25,6 +27,7 @@ public class CompagniesTransport implements Serializable {
 	private String siret;
 	private int cout;
 	private boolean ponctualite;
+	@JsonIgnoreProperties("compTransport")
 	@OneToMany(mappedBy = "compTransport")
 	private List<Avis> avis = new ArrayList<>();
 

@@ -14,6 +14,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Guide implements Serializable {
 	@Id
@@ -24,7 +26,7 @@ public class Guide implements Serializable {
 	private String type;
 	@Lob
 	private byte[] fichierPdf;
-
+	@JsonIgnoreProperties("guides")
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
 	private Pays pays;

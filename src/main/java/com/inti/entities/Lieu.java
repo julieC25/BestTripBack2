@@ -33,7 +33,7 @@ public class Lieu implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="idVille")
 	private Ville ville;
-	
+	@JsonIgnoreProperties("lieu")
 	@OneToMany(mappedBy = "lieu")
 	private List<Avis> avis = new ArrayList<>();
 	

@@ -35,7 +35,7 @@ public class GuideController {
 	public Guide findOne(@PathVariable("idG") Long idGuide) {
 		return guideService.findOne(idGuide); 
 	}
-
+	/*
 	@PostMapping("/guides")
 	public String saveGuide(@RequestParam("titre") String titre, @RequestParam("approbation") boolean approbation,
 			@RequestParam("type") String type, @RequestParam("fichierPdf") MultipartFile fichierPdf) {
@@ -48,7 +48,7 @@ public class GuideController {
 			ex.printStackTrace();
 			return "Fail! maybe you had uploaded the file before or the file's size > 500kb";
 		}
-	}
+	}*/
 	@PostMapping("/guides/rawdata")
 	public Guide saveGuideRaw(@RequestBody Guide guide) {
 		byte[] file = guideService.findOne(guide.getIdGuide()).getFichierPdf();
