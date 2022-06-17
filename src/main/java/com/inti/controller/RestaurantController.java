@@ -37,10 +37,16 @@ public class RestaurantController {
 	public Restaurant saveRestaurant(@RequestBody Restaurant restaurant) {
 		return restaurantService.save(restaurant);
 	}*/
-	@PostMapping("/restaurannts/rawdata")
+	@PostMapping("/restaurants/rawdata")
 	public Restaurant saveGuideRaw(@RequestBody Restaurant restaurant) {
-		byte[] file = restaurantService.findOne(restaurant.getIdLieu()).getCarte();
-		restaurant.setCarte(file);
+		if(restaurant.getIdLieu() == null) {
+			Restaurant tmpRestaurant = new Restaurant();
+			restaurant.setIdLieu(tmpRestaurant.getIdLieu());
+		}
+		else {
+			byte[] file = restaurantService.findOne(restaurant.getIdLieu()).getCarte();
+			restaurant.setCarte(file);
+		}
 		return restaurantService.save(restaurant);
 	}
 	@PostMapping("/restaurants/file/{id}")
