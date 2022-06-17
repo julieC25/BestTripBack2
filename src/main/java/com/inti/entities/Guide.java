@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -30,6 +31,9 @@ public class Guide implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
 	private Pays pays;
+	@JsonIgnoreProperties("guide")
+	@OneToMany(mappedBy = "guide")
+	private Set<Avis> avis;
 
 	public Guide() {
 	}
