@@ -27,9 +27,6 @@ public class Ville implements Serializable {
 	@JsonIgnoreProperties("ville")
 	@OneToMany(mappedBy = "ville")
 	private List<Lieu> lieux = new ArrayList<>();
-	@JsonIgnoreProperties("ville")
-	@OneToMany(mappedBy = "ville")
-	private List<Avis> avis = new ArrayList<>();
 	@JsonIgnoreProperties("villes")
 	@ManyToOne
 	@JoinColumn(name="idPays")
@@ -57,7 +54,6 @@ public class Ville implements Serializable {
 		this.modaliteTransport = modaliteTransport;
 		this.nbHabitants = nbHabitants;
 		this.lieux = lieux;
-		this.avis = avis;
 		this.pays = pays;
 	}
 
@@ -99,15 +95,6 @@ public class Ville implements Serializable {
 
 	public void setLieux(List<Lieu> lieux) {
 		this.lieux = lieux;
-	}
-	
-	
-	public List<Avis> getAvis() {
-		return avis;
-	}
-
-	public void setAvis(List<Avis> avis) {
-		this.avis = avis;
 	}
 
 	public Pays getPays() {
