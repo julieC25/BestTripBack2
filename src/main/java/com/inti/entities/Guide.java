@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Guide implements Serializable {
@@ -20,26 +23,29 @@ public class Guide implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idGuide;
 	private String titre;
-	private String approbation;
+	private boolean approbation = true;
 	private String type;
 	@Lob
 	private byte[] fichierPdf;
-
+	@JsonIgnoreProperties("guides")
 	@ManyToOne
 	@JoinColumn(name = "id_pays")
 	private Pays pays;
+	@JsonIgnoreProperties("guide")
+	@OneToMany(mappedBy = "guide")
+	private Set<Avis> avis;
 
 	public Guide() {
 	}
 
-	public Guide(String titre, String approbation, String type, byte[] fichierPdf) {
+	public Guide(String titre, boolean approbation, String type, byte[] fichierPdf) {
 		this.titre = titre;
 		this.approbation = approbation;
 		this.type = type;
 		this.fichierPdf = fichierPdf;
 	}
 
-	public Guide(String titre, String approbation, String type, byte[] fichierPdf, Pays pays) {
+	public Guide(String titre, boolean approbation, String type, byte[] fichierPdf, Pays pays) {
 		this.titre = titre;
 		this.approbation = approbation;
 		this.type = type;
@@ -63,11 +69,11 @@ public class Guide implements Serializable {
 		this.titre = titre;
 	}
 
-	public String getApprobation() {
+	public boolean getApprobation() {
 		return approbation;
 	}
 
-	public void setApprobation(String approbation) {
+	public void setApprobation(boolean approbation) {
 		this.approbation = approbation;
 	}
 

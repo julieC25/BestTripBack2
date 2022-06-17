@@ -9,13 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class PointStatistique implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPoint;
-	private String ValeurX;
-	private float ValeurY;
+	private String valeurX;
+	private float valeurY;
+	@JsonIgnoreProperties("valeurs")
 	@ManyToOne
 	@JoinColumn(name="id_statistique")
 	private Statistique statistique;
@@ -24,8 +27,8 @@ public class PointStatistique implements Serializable{
 		
 	}
 	public PointStatistique(String valeurX, float valeurY, Statistique statistique) {
-		ValeurX = valeurX;
-		ValeurY = valeurY;
+		this.valeurX = valeurX;
+		this.valeurY = valeurY;
 		this.statistique = statistique;
 	}
 	public Long getIdPoint() {
@@ -35,16 +38,16 @@ public class PointStatistique implements Serializable{
 		this.idPoint = idPoint;
 	}
 	public String getValeurX() {
-		return ValeurX;
+		return valeurX;
 	}
 	public void setValeurX(String valeurX) {
-		ValeurX = valeurX;
+		this.valeurX = valeurX;
 	}
 	public float getValeurY() {
-		return ValeurY;
+		return valeurY;
 	}
 	public void setValeurY(float valeurY) {
-		ValeurY = valeurY;
+		this.valeurY = valeurY;
 	}
 	public Statistique getStatistique() {
 		return statistique;

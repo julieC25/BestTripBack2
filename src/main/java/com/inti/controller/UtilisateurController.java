@@ -1,6 +1,7 @@
 package com.inti.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.inti.entities.Role;
 import com.inti.entities.Utilisateur;
 import com.inti.service.interfaces.IUtilisateurService;
 
@@ -40,9 +42,19 @@ public class UtilisateurController {
 	public String saveUtilisateur(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("imageProfil") MultipartFile imageProfil,@RequestParam("email") String email,
-			@RequestParam("enabled") boolean enabled,@RequestParam("abonnementNewsletter") boolean abonnementNewsletter) {
+			@RequestParam("enabled") String enabled,@RequestParam("abonnementNewsletter") String abonnementNewsletter,
+			@RequestParam("nbConnexion") String nbConnexion) {
+		boolean enabledBoolean=false;
+		boolean abonnementNewsletterBoolean=false;
+		int nbConnexionInt = Integer.parseInt(nbConnexion);
+		if (enabled=="true") {
+			enabledBoolean = true;
+		}
+		if(abonnementNewsletter=="true") {
+			abonnementNewsletterBoolean = true;
+		}
 		try {
-			Utilisateur currenUser = new Utilisateur(nom, prenom, username, passwordEncoder.encode(password), email, abonnementNewsletter, enabled, null, imageProfil.getBytes());
+			Utilisateur currenUser = new Utilisateur(nom, prenom, username, passwordEncoder.encode(password), email, abonnementNewsletterBoolean, enabledBoolean, null, imageProfil.getBytes(),nbConnexionInt);
 			currenUser.setImageProfil(imageProfil.getBytes());
 			utilisateurService.save(currenUser);
 			return "File uploaded successfully! filename=" + imageProfil.getOriginalFilename();
@@ -50,6 +62,14 @@ public class UtilisateurController {
 			ex.printStackTrace();
 			return "Fail! maybe you had uploaded the file before or the file's size > 500kb";
 		}
+	}
+	
+	@PostMapping("/utilisateurs/updateRole/{idUtilisateur}")
+	public Utilisateur updateRoles(@PathVariable("idUtilisateur") Long id, @RequestBody Set<Role> roles) {
+		Utilisateur oldUser = utilisateurService.findOne(id);
+		oldUser.setRoles(roles);
+		utilisateurService.save(oldUser);
+		return oldUser;
 	}
 
 	@DeleteMapping("/utilisateurs/{idUtilisateur}")

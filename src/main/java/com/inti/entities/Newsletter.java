@@ -11,13 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Newsletter implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idNewsletter;
+	private String nom;
 	private Date dateParution;
-
+	private String corps;
+	@JsonIgnoreProperties("newsletters")
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
@@ -34,8 +38,25 @@ public class Newsletter implements Serializable {
 		this.utilisateur = utilisateur;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
 	public Long getIdNewsletter() {
 		return idNewsletter;
+	}
+	
+	
+	public String getCorps() {
+		return corps;
+	}
+
+	public void setCorps(String corps) {
+		this.corps = corps;
 	}
 
 	public void setIdNewsletter(Long idNewsletter) {

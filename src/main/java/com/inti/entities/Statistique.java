@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.service.interfaces.IPointStatistiqueService;
 
 @Entity
@@ -25,8 +26,10 @@ public class Statistique implements Serializable{
 	private String titre;
 	private String nomAxeX;
 	private String nomAxeY;
+	@JsonIgnoreProperties("statistique")
 	@OneToMany(mappedBy = "statistique")
 	private Set<PointStatistique> valeurs;
+	@JsonIgnoreProperties("statistiques")
 	@ManyToOne
 	@JoinColumn(name="id_utilisateur")
 	private Utilisateur utilisateur;

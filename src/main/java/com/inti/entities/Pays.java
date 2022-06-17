@@ -5,38 +5,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
-public class Pays implements Serializable {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@DiscriminatorValue("pays")
+public class Pays extends Continent implements Serializable {
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true)
 	private Long idPays;
 	private String nomPays;
 	private String securite;
 	private String langue;
-	private String surface;
+	private int surface;
 	private boolean conduiteSens = true;
-	private int visa;
+	private String visa;
 	private String numeroUtile;
-
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Guide> guides = new ArrayList<>();
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Experience> experiences = new ArrayList<>();
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Ville> villes = new ArrayList<>();
+	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Avis> avis = new ArrayList<>();
 
 	public Pays() {
 	}
 
-	public Pays(String nomPays, String securite, String langue, String surface, boolean conduiteSens, int visa,
+	public Pays(String nomPays, String securite, String langue, int surface, boolean conduiteSens, String visa,
 			String numeroUtile) {
 		this.nomPays = nomPays;
 		this.securite = securite;
@@ -46,8 +55,13 @@ public class Pays implements Serializable {
 		this.visa = visa;
 		this.numeroUtile = numeroUtile;
 	}
+	
 
-	public Pays(String nomPays, String securite, String langue, String surface, boolean conduiteSens, int visa,
+	public Pays(String nomContinent) {
+		super(nomContinent);
+	}
+
+	public Pays(String nomPays, String securite, String langue, int surface, boolean conduiteSens, String visa,
 			String numeroUtile, List<Guide> guides, List<Experience> experiences, List<Ville> villes, List<Avis> avis) {
 		this.nomPays = nomPays;
 		this.securite = securite;
@@ -94,11 +108,11 @@ public class Pays implements Serializable {
 		this.langue = langue;
 	}
 
-	public String getSurface() {
+	public int getSurface() {
 		return surface;
 	}
 
-	public void setSurface(String surface) {
+	public void setSurface(int surface) {
 		this.surface = surface;
 	}
 
@@ -110,11 +124,11 @@ public class Pays implements Serializable {
 		this.conduiteSens = conduiteSens;
 	}
 
-	public int getVisa() {
+	public String getVisa() {
 		return visa;
 	}
 
-	public void setVisa(int visa) {
+	public void setVisa(String visa) {
 		this.visa = visa;
 	}
 

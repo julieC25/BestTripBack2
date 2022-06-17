@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 public class Monument extends Lieu implements Serializable {
 	private String description;
 	private Date dateConstruction;
-	private Long horaires;
+	private String horaires;
 	public Monument() {
 		super();
 	}
@@ -21,7 +21,7 @@ public class Monument extends Lieu implements Serializable {
 	public Monument(String nom, String localisation, String nbVisiteurs) {
 		super(nom, localisation, nbVisiteurs);
 	}
-	public Monument(String description, Date dateConstruction, Long horaires) {
+	public Monument(String description, Date dateConstruction, String horaires) {
 		super();
 		this.description = description;
 		this.dateConstruction = dateConstruction;
@@ -39,10 +39,10 @@ public class Monument extends Lieu implements Serializable {
 	public void setDateConstruction(Date dateConstruction) {
 		this.dateConstruction = dateConstruction;
 	}
-	public Long getHoraires() {
+	public String getHoraires() {
 		return horaires;
 	}
-	public void setHoraires(Long horaires) {
+	public void setHoraires(String horaires) {
 		this.horaires = horaires;
 	}
 	@Override

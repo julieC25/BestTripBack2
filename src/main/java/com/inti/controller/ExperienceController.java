@@ -47,4 +47,10 @@ public class ExperienceController {
 		currentExperience.setRecit(experience.getRecit());
 		return ExperienceService.save(currentExperience);
 	}
+	
+	@GetMapping("/Experiences/countByMonth")
+	public int[] countByMonth() {
+		return ExperienceService.countByMonth();
+	}
+	
 }
