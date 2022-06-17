@@ -34,7 +34,6 @@ public class Guide implements Serializable {
 	@JsonIgnoreProperties("guide")
 	@OneToMany(mappedBy = "guide")
 	private Set<Avis> aviss;
-	
 
 	public Guide() {
 	}
