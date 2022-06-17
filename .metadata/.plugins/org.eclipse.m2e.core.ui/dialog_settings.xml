@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/in-tl-025/Documents/Projet_Final/Back/BestTripBack2"/>
 			<item value="/home/in-so-013/Documents/workspace/CJFS/Projet/BestTripBack2"/>
 		</list>
 		<list key="projectNameTemplate">
