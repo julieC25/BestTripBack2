@@ -30,18 +30,34 @@ public class Avis implements Serializable {
 	private Utilisateur utilisateur;
 	@JsonIgnoreProperties("avis")
 	@ManyToOne
-	@JoinColumn(name = "id_ville")
-	private Ville ville;
-	@JsonIgnoreProperties("avis")
-	@ManyToOne
 	@JoinColumn(name = "id_lieu")
 	private Lieu lieu;
 	@JsonIgnoreProperties("avis")
 	@ManyToOne
-	@JoinColumn(name = "id_pays")
-	private Pays pays;
+	@JoinColumn(name = "id_experience")
+	private Experience experience;
+	@JsonIgnoreProperties("avis")
+	@ManyToOne
+	@JoinColumn(name = "id_guide")
+	private Guide guide;
 
 	public Avis() {
+	}
+
+	public Experience getExperience() {
+		return experience;
+	}
+
+	public void setExperience(Experience experience) {
+		this.experience = experience;
+	}
+
+	public Guide getGuide() {
+		return guide;
+	}
+
+	public void setGuide(Guide guide) {
+		this.guide = guide;
 	}
 
 	public Avis(String titre, int note, String recommandation, CompagniesTransport compTransport) {
@@ -58,9 +74,7 @@ public class Avis implements Serializable {
 		this.recommandation = recommandation;
 		this.compTransport = compTransport;
 		this.utilisateur = utilisateur;
-		this.ville = ville;
 		this.lieu = lieu;
-		this.pays = pays;
 	}
 
 	public String getDescription() {
@@ -119,14 +133,6 @@ public class Avis implements Serializable {
 		this.utilisateur = utilisateur;
 	}
 
-	public Ville getVille() {
-		return ville;
-	}
-
-	public void setVille(Ville ville) {
-		this.ville = ville;
-	}
-
 	public Lieu getLieu() {
 		return lieu;
 	}
@@ -135,19 +141,10 @@ public class Avis implements Serializable {
 		this.lieu = lieu;
 	}
 
-	public Pays getPays() {
-		return pays;
-	}
-
-	public void setPays(Pays pays) {
-		this.pays = pays;
-	}
-
 	@Override
 	public String toString() {
 		return "Avis [idAvis=" + idAvis + ", titre=" + titre + ", note=" + note + ", recommandation=" + recommandation
-				+ ", compTransport=" + compTransport + ", utilisateur=" + utilisateur + ", ville=" + ville + ", lieu="
-				+ lieu + ", pays=" + pays + "]";
+				+ ", compTransport=" + compTransport + ", utilisateur=" + utilisateur;
 	}
 
 }

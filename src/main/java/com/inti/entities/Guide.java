@@ -33,7 +33,7 @@ public class Guide implements Serializable {
 	private Pays pays;
 	@JsonIgnoreProperties("guide")
 	@OneToMany(mappedBy = "guide")
-	private Set<Avis> avis;
+	private Set<Avis> aviss;
 
 	public Guide() {
 	}

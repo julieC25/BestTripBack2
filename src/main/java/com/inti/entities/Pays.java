@@ -38,9 +38,6 @@ public class Pays extends Continent implements Serializable {
 	@JsonIgnoreProperties("pays")
 	@OneToMany(mappedBy = "pays")
 	private List<Ville> villes = new ArrayList<>();
-	@JsonIgnoreProperties("pays")
-	@OneToMany(mappedBy = "pays")
-	private List<Avis> avis = new ArrayList<>();
 
 	public Pays() {
 	}
@@ -73,7 +70,6 @@ public class Pays extends Continent implements Serializable {
 		this.guides = guides;
 		this.experiences = experiences;
 		this.villes = villes;
-		this.avis = avis;
 	}
 
 	public Long getIdPays() {
@@ -164,13 +160,6 @@ public class Pays extends Continent implements Serializable {
 		this.villes = villes;
 	}
 
-	public List<Avis> getAvis() {
-		return avis;
-	}
-
-	public void setAvis(List<Avis> avis) {
-		this.avis = avis;
-	}
 
 	@Override
 	public String toString() {

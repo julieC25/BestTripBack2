@@ -39,7 +39,7 @@ public class Experience implements Serializable {
 	private Utilisateur utilisateur;
 	@JsonIgnoreProperties("experience")
 	@OneToMany(mappedBy = "experience")
-	private Set<Avis> avis;
+	private Set<Avis> aviss;
 
 	public Experience() {
 	}
