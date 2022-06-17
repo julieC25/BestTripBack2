@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.inti.entities.Experience;
 import com.inti.service.interfaces.IExperienceService;
@@ -31,13 +33,41 @@ public class ExperienceController {
 		return ExperienceService.findOne(idExperience); 
 	}
 
-	@PostMapping("/Experiences") 
-	public Experience saveExperience(@RequestBody Experience Experience) {
-		return ExperienceService.save(Experience);
+	@PostMapping("/Experiences/rawdata")
+	public Experience saveExperienceRaw(@RequestBody Experience experience) {
+		if(experience.getIdExperience() == null) {
+			Experience tmpexperience = new Experience();
+			experience.setIdExperience(tmpexperience.getIdExperience());
+		}
+		else {
+			byte[] file = ExperienceService.findOne(experience.getIdExperience()).getImage();
+			experience.setImage(file);
+		}
+		return ExperienceService.save(experience);
+	}
+	
+	@PostMapping("/experiences/file/{idexperience}")
+	public String saveExperienceFile(@PathVariable("idexperience") Long id,@RequestParam("imagef") MultipartFile image) {
+		try {
+			Experience currenexperience = ExperienceService.findOne(id);
+			currenexperience.setImage(image.getBytes());
+			ExperienceService.save(currenexperience);
+			return "File uploaded successfully! filename=" + image.getOriginalFilename();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return "Fail! maybe you had uploaded the file before or the file's size > 500kb";
+		}
+	}
+	
+	@DeleteMapping("/Experience/removefile/{idE}")
+	public void deleteFileFromExperience(@PathVariable("idE") Long idExperience) {
+		Experience experience = ExperienceService.findOne(idExperience);
+		experience.setImage(null);
+		ExperienceService.save(experience);
 	}
 
 	@DeleteMapping("/Experiences/{idExperience}")
-	public void deleteExperience(@PathVariable("idExperience") Long idExperience) {
+	public void delete(@PathVariable("idExperience") Long idExperience) {
 		ExperienceService.delete(idExperience);
 	}
 

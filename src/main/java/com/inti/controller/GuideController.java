@@ -51,10 +51,17 @@ public class GuideController {
 	}*/
 	@PostMapping("/guides/rawdata")
 	public Guide saveGuideRaw(@RequestBody Guide guide) {
-		byte[] file = guideService.findOne(guide.getIdGuide()).getFichierPdf();
-		guide.setFichierPdf(file);
+		if(guide.getIdGuide() == null) {
+			Guide tmpguide = new Guide();
+			guide.setIdGuide(tmpguide.getIdGuide());
+		}
+		else {
+			byte[] file = guideService.findOne(guide.getIdGuide()).getFichierPdf();
+			guide.setFichierPdf(file);
+		}
 		return guideService.save(guide);
 	}
+	
 	@PostMapping("/guides/file/{idGuide}")
 	public String saveGuideFile(@PathVariable("idGuide") Long id,@RequestParam("fichierPdf") MultipartFile fichierPdf) {
 		try {
